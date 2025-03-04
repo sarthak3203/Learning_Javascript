@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    let arr=[1,2,3,4,5,6,7,8,9];
+
+    // let odd = arr.filter((num,index)=>{
+    //   if(num%2===1){
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+
+    //small version
+
+
+    // let odd = arr.filter((num,index)=>{
+    //   return num%2===1;                //if you are returning true or false only, try to use the condition directly
+    // })
+
+
+    //smalller version
+
+    let odd= arr.filter((num,index)=> num%2===1);  //skipped return as it is one line statement
+
+
+
+    console.log(odd);
+  </script>
+</body>
+</html>

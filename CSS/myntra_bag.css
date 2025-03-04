@@ -1,0 +1,18 @@
+.add_bag{
+  background-color: lightgreen;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 20px;
+}
+
+.wishlist{
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 6px 35px;
+  text-transform: uppercase;
+}
+
+.cartsummary{
+  font-size: 23px;
+  font-weight: 900;
+}

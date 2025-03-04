@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    let product = {
+      name: 'tshirt',
+      price: 1000,
+      //if we give name color-name without quotes then it will show error as - is not allowed in name. after giving quote it is treating color-name as a stirng
+      'color-name':'white',
+    };
+
+    console.log(product.price);
+//another way of accessing object property.
+    console.log(product['color-name']);
+    console.log(product);
+
+    product.name = 'Pajama';
+
+    console.log(product);
+
+    delete product.name;
+    console.log(product);
+  </script>
+</body>
+</html>

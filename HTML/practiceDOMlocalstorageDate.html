@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <style>
+
+    #button{
+      height: 75px;
+      width: 75px;
+      border: none;
+      border-radius: 5px;
+      font-size: 25px;
+    }
+
+    .odd{
+      background-color: aquamarine;
+
+    }
+
+    .even{
+      background-color: tan;
+
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="greet"></h1>
+<button id="button" onclick="buttonPressed()"></button>
+
+  
+
+<script>
+//    let heading = document.querySelector('#greet');
+//    let date = new Date();
+//    let hours = date.getHours();
+//    function greet(name='dear'){
+//   if(hours > 5 && hours < 12){
+//     heading.innerText=`Good morning ${name}`;
+//   } else if(hours > 12 && hours < 18){
+//     heading.innerText=`Good afternoon ${name}`;
+//   } else{
+//     heading.innerText=`Good evening ${name}`;
+//   }
+// }
+
+// greet('Sarthak');
+
+let timesPressed=localStorage.getItem('timesPressed') || 0;
+function buttonPressed(){
+  timesPressed++;
+  localStorage.setItem('timesPressed', timesPressed)
+  
+  updateButton();
+}
+
+function updateButton(){
+  let button = document.querySelector('#button');
+  if(timesPressed%2==0){
+    button.classList.remove('odd');
+    button.classList.add('even');
+  } else{
+    button.classList.remove('even');
+    button.classList.add('odd');
+
+  }
+  button.innerText=timesPressed;
+}
+
+updateButton();
+
+
+
+  
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    let arr=[2,4,5,6,8,10];
+    // arr.forEach(function(num){
+    //   console.log(num);
+    // })
+
+    //OR
+    
+   // arr.forEach(num=> console.log(num));  //using arrow function on anonymous function
+
+   arr.forEach(function(num){
+    if(num==5){
+      return;    //will skip 5 and not print it bcos return works as continue in foreach loop
+    }
+    console.log(num);
+   })
+
+
+  </script>
+</body>
+</html>

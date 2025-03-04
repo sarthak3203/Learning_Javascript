@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <style>
+    #button{
+      height: 80px;
+      width: 90px;
+      border: none;
+      border-radius: 10px;
+      background-color: brown;
+      color: aqua;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="button">Click Me</button>
+  
+
+  <script>
+    let button = document.querySelector('#button');
+    let behaviour= event => console.log('Im clicked');
+    button.addEventListener('click',behaviour);
+
+    function printhours(){
+      console.log(new Date().getHours());
+
+    }
+//adding multiple event listener to same button.
+
+    button.addEventListener('click',printhours);
+
+    //to remove any event listener.
+
+   // button.removeEventListener('click',printhours);
+
+
+   //study in detail about type of events.
+
+
+  </script>
+</body>
+</html>
