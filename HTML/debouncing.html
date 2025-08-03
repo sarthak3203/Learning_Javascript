@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing in javascript
+    </title>
+</head>
+
+<body>
+
+    <button>click here</button>
+
+
+
+    <script>
+
+
+
+        // ✅ The actual function to be executed after debounce delay
+        const clickLog = () => console.log('clicked');
+
+        // 🟢 Function to run after DOM is fully loaded
+        const initApp = () => {
+            const button = document.querySelector('button'); 
+            button.addEventListener('click', ()=>{
+                clickLog();
+                button.disabled=true;
+                setTimeout(()=>button.disabled=false, 800) //disables the button for 1 second, preventing another accidental click
+            });
+        };
+
+        // 🚀 Run initApp after the whole HTML page is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+
+
+        // 🧠 DEBOUNCE FUNCTION: Delays execution until there's a pause in repeated events (like clicks)
+        const debounce = (fn, delay) => {
+            let id; // Stores the current timer ID
+
+            // This logs once when debounce function is first created
+            console.log(`id at immediate load: ${id}`);
+
+            // Return a new function (the debounced version)
+            return (...args) => {
+                console.log(`previous id: ${id}`); // Shows the last timer ID
+
+                // If user clicks again before delay is over, cancel the previous timer
+                if (id) clearTimeout(id);
+
+                // Start a new timer. If no more clicks happen in 'delay' time, run the original function
+                id = setTimeout(() => {
+                    fn(...args); // Call the actual function after waiting
+                }, delay);
+            };
+        };
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

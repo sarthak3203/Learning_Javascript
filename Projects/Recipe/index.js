@@ -6,7 +6,7 @@ const recipeCloseBtn = document.querySelector('.recipe-close-btn');
 
 //function to get recipes
 const fetchRecipes = async (query) => {
-  recipeContainer.innerHTML = "<h2>Fetching Recipes...</h2>";
+  recipeContainer.innerHTML = "<h2>Searching...</h2>";
   try {
     const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`) //always put https:// in the link otherwise it will not work
     const response = await data.json(); //await gives all data in one go and only works with async function

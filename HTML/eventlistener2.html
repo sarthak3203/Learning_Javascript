@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Event</title>
+  <style>
+    #myBtn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: lightblue;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="myBtn">Hover Over Me</button>
+
+  <script>
+    const button = document.querySelector('#myBtn');
+
+    // Function to run when hovered
+    const onHover = (event) => {
+      event.target.style.backgroundColor = 'orange';
+      console.log("Hovered on button");
+    };
+
+    // Reset color when mouse leaves
+    const onLeave = (event) => {
+      event.target.style.backgroundColor = 'lightblue';
+      console.log("Mouse left button");
+    };
+
+    // Add mouseover and mouseout event listeners
+    button.addEventListener('mouseover', onHover);
+    button.addEventListener('mouseout', onLeave);
+  </script>
+
+</body>
+</html>

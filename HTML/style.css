@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+  background: #f0f8ff;
+}
+
+h1 {
+  color: #333;
+}
+
+select, input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#displayBox {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #007BFF;
+  background-color: #e0f0ff;
+  display: inline-block;
+  min-width: 200px;
+}

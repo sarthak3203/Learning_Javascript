@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+/*
+
+        let x=1; //global scope
+const parentFunc=()=>{
+    let myValue=2; //local parent scope
+    console.log(x); //it has access to global scope
+    console.log(myValue);
+
+    const childFunc=()=>{
+        console.log(x+=5);
+        console.log(myValue+=2);
+        //this nested function has access to both parent scope and global scope, this concept is called lexical scope, which is main part of closure
+
+    }
+    //childFunc();
+    //if we return this function insteas of calling
+    return childFunc;
+    //Parent function has finished executing, but the returned child function still has access to its variables, making myValue a private variable which can only be access via childFunc, shown below.
+}
+
+const result=parentFunc(); //this will only call parentfUNC
+
+console.log(result); // it will return the whole childFunc whatever written inside it.
+
+result(); // this will call the childFunc and print X and myValue
+
+result(); //again call the childFunc with the updated values of X and myValue.
+//now this result() is calling childFunc which is printing myValue and X
+
+console.log(myValue); //but it we print myValue direct, it will show error as myValue has become the private variable (parentFunc was closed long before when it returned childFunc) and can only be accessibl via result (childFunc)
+
+//NOW, childFunc is the closure which has access to the parentFunc scope(myValue variable) even if the parent function is closed.
+
+//
+// CORRECT DEFINITION : Closures are functions that remember the variables from the scope where they were created, even after that outer scope is gone.
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+const credit = ((num)=>{
+    let credits = num;
+    console.log(`Initial number of credits: ${credits}`);
+    return ()=>{ //parent function will close after returning
+        credits-=1;
+        if(credits>0) console.log(`playing game, ${credits} remaining`);
+        else console.log("not enough credits to play");
+    } //anonymous child function
+
+})(2);  //this is IIFE Immediately Invoked Function Expression
+
+credit();
+credit();
+console.log(credits) //it will show error not defined as credits is now a private variable and can only be accessed using child function.
+
+
+
+    </script>
+</body>
+</html>

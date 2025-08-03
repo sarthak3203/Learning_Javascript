@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Practice</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+      color: red;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="greeting">Hello</h1>
+
+  <p class="intro">This is a paragraph.</p>
+
+  <button onclick="addClass()">Add Highlight</button>
+  <button onclick="removeClass()">Remove Highlight</button>
+
+  <h2>List:</h2>
+  <ul id="list">
+    <li id="item1">Item 1</li>
+  </ul>
+
+  <button onclick="addItem()">Add Item</button>
+  <button onclick="removeItem()">Remove Item</button>
+  <button onclick="replaceItem()">Replace Item</button>
+
+  <script>
+    // 1. getElementById()
+    const heading = document.getElementById("greeting");
+    heading.innerText = "Welcome Sarthak!";
+
+    // 2. querySelector()
+    const para = document.querySelector(".intro");
+    para.style.fontSize = "20px";
+
+    // 3. classList.add() and remove()
+    function addClass() {
+      para.classList.add("highlight");
+    }
+
+    function removeClass() {
+      para.classList.remove("highlight");
+    }
+
+    // 4. createElement(), 5. appendChild()
+    function addItem() {
+      const list = document.getElementById("list");
+      const newItem = document.createElement("li");
+      newItem.innerText = "New Item";
+      newItem.id = "newItem";
+      list.appendChild(newItem);
+    }
+
+    // 6. removeChild()
+    function removeItem() {
+      const list = document.getElementById("list");
+      const item = document.getElementById("newItem");
+      if (item) {
+        list.removeChild(item);
+      }
+    }
+
+    // 7. replaceChild()
+    function replaceItem() {
+      const list = document.getElementById("list");
+      const oldItem = document.getElementById("item1");
+      const newItem = document.createElement("li");
+      newItem.innerText = "Replaced Item";
+      list.replaceChild(newItem, oldItem);
+    }
+  </script>
+
+</body>
+</html>

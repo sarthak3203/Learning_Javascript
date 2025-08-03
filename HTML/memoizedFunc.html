@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoization</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // This function creates a memoized version of a square calculator
+function memoizedSquare() {
+  const cache = {}; // This object will store already calculated results
+
+  return function(n) {
+    // If the result is already in cache, return it directly
+    if (cache[n] !== undefined) {
+      console.log("Fetching from cache...");
+      return cache[n];
+    }
+
+    // If not in cache, calculate and store the result
+    console.log("Calculating...");
+    const result = n * n;
+    cache[n] = result; // Save the result in the cache
+    return result;
+  };
+}
+
+// Create a memoized square function
+const square = memoizedSquare();
+
+// Test cases
+console.log(square(5)); // Logs "Calculating..." then 25
+console.log(square(5)); // Logs "Fetching from cache..." then 25
+console.log(square(6)); // Logs "Calculating..." then 36
+console.log(square(6)); // Logs "Fetching from cache..." then 36
+
+
+
+
+    </script>
+</body>
+</html>

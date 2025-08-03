@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Document</title>
+  <title>Filter Method</title>
 </head>
 <body>
   
   <script>
 
-    let arr=[1,2,3,4,5,6,7,8,9];
+    let arr=[1,2,3,4,5,6,7,8,9,10];
+    let even=arr.filter((num,index)=>{
+      if(num%2==0){
+        return true;
+      }
+      else return false;
+    });
 
-    // let odd = arr.filter((num,index)=>{
-    //   if(num%2===1){
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // });
-
-    //small version
-
-
-    // let odd = arr.filter((num,index)=>{
-    //   return num%2===1;                //if you are returning true or false only, try to use the condition directly
-    // })
-
-
-    //smalller version
-
-    let odd= arr.filter((num,index)=> num%2===1);  //skipped return as it is one line statement
+    even.forEach((num,index)=>{
+      console.log(index+":"+num);
+    })
 
 
 
-    console.log(odd);
+
   </script>
 </body>
 </html>

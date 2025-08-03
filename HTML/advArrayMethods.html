@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance  Array Methods</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        const students = [
+  { name: "Sarthak", marks: 75 },
+  { name: "Ravi", marks: 42 },
+  { name: "Priya", marks: 88 },
+  { name: "Ankit", marks: 33 },
+  { name: "Neha", marks: 64 }
+];
+
+ let marks=students.filter((obj)=>{
+    if(obj.marks>50) return true;
+    else return false;
+ })
+
+ console.log(marks);
+
+
+ let names=marks.map((obj)=>{
+    return obj.name.toUpperCase();
+ });
+
+ console.log(names);
+
+
+ /* filter() returns the full objects that match the condition because it only removes unwanted items without changing their structure. On the other hand, map() transforms each item and returns only what you specify — like just the name in uppercase. */
+
+
+
+    </script>
+</body>
+</html>

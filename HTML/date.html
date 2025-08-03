@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="time"></h1>
+    <h2 id="mil"></h2>
+    <h3 id="day"></h3>
+    
+
+
+<script>
+
+    const date = new Date();
+   const heading= document.getElementById("time")
+   heading.innerHTML=date;
+   const mili=document.getElementById("mil");
+   mili.innerHTML=date.getTime();
+   document.getElementById("day").innerHTML=date.getDay(); //retuns no. of the day of the weeek
+
+
+
+
+</script>
+</body>
+</html>

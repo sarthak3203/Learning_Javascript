@@ -5,36 +5,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css">
-  <title>Recipe App</title>
+  <title>ChefMate</title>
 </head>
 
 <body>
   <header>
     <nav>
-      <h1>Recipe App</h1>
-      <form>
-        <input type="text" placeholder="Search for Recipes" class="searchBox">
-        <button type="submit" class="searchBtn">Search</button>
-      </form>
+      <span class="image-container">
+        <img class="image" src="./assets/DALL·E 2025-03-21 19.57.18 - A modern and minimalistic logo for 'ChefMate'. The logo should feature a simple chef hat icon integrated with the text 'ChefMate' in a sleek, professi.webp" alt="ChefMate logo">
+      </span>
+     
+     <span class="chefmate-text">Your cooking companion!!</span>
     </nav>
   </header>
 
   <main>
-    <section>
-      <div class="recipe-container">
-        <h2>Search for your favourite recipe...</h2>
-      </div>
-      <div class="recipe-details">
-        <button type="button" class="recipe-close-btn">
-          X
-
-        </button>
-        <div class="recipe-details-content">
-
-        </div>
-      </div>
+    <!-- Search area -->
+    <section class="search-section">
+      <h2 class="search-heading">Search for your favourite recipe...</h2>
+      <form class="form">
+        <input type="text" placeholder="Search for Recipes" class="searchBox">
+        <button type="submit" class="searchBtn">Search</button>
+      </form>
     </section>
+  
+    <!-- Recipe results will show here -->
+    <section class="recipe-container">
+      <!-- recipes injected here -->
+    </section>
+  
+    <!-- Recipe popup -->
+    <div class="recipe-details">
+      <button type="button" class="recipe-close-btn">X</button>
+      <div class="recipe-details-content"></div>
+    </div>
   </main>
+  
   <script src="index.js"></script>
 </body>
 

@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* StudySync Design System - Academic focus with calming blue-purple theme */
+
+@layer base {
+  :root {
+    --background: 250 50% 98%;
+    --foreground: 222 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    /* Primary: Deep blue-purple for academic focus */
+    --primary: 245 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 245 60% 85%;
+    --primary-dark: 245 80% 35%;
+
+    /* Secondary: Soft lavender for supporting elements */
+    --secondary: 250 30% 95%;
+    --secondary-foreground: 245 60% 25%;
+
+    --muted: 250 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent: Warm amber for highlights and success states */
+    --accent: 45 85% 60%;
+    --accent-foreground: 45 100% 10%;
+    --accent-light: 45 85% 85%;
+
+    /* Study-specific colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 245 20% 90%;
+    --input: 245 20% 92%;
+    --ring: 245 70% 55%;
+
+    /* Gradients for modern study interface */
+    --gradient-primary: linear-gradient(135deg, hsl(245, 70%, 55%), hsl(260, 60%, 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(250, 30%, 95%), hsl(245, 25%, 98%));
+    --gradient-accent: linear-gradient(135deg, hsl(45, 85%, 60%), hsl(35, 80%, 55%));
+    
+    /* Study session backgrounds */
+    --gradient-focus: linear-gradient(135deg, hsl(245, 60%, 96%), hsl(250, 40%, 98%));
+    --gradient-break: linear-gradient(135deg, hsl(45, 40%, 96%), hsl(50, 30%, 98%));
+
+    /* Shadows for depth */
+    --shadow-card: 0 4px 20px -2px hsl(245, 70%, 55%, 0.08);
+    --shadow-focus: 0 8px 30px -4px hsl(245, 70%, 55%, 0.15);
+    --shadow-accent: 0 4px 20px -2px hsl(45, 85%, 60%, 0.2);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 245 25% 8%;
+    --foreground: 250 20% 95%;
+
+    --card: 245 20% 10%;
+    --card-foreground: 250 20% 95%;
+
+    --popover: 245 20% 10%;
+    --popover-foreground: 250 20% 95%;
+
+    --primary: 245 70% 65%;
+    --primary-foreground: 245 25% 8%;
+    --primary-light: 245 50% 25%;
+    --primary-dark: 245 80% 75%;
+
+    --secondary: 245 15% 15%;
+    --secondary-foreground: 250 20% 90%;
+
+    --muted: 245 15% 12%;
+    --muted-foreground: 245 10% 65%;
+
+    --accent: 45 85% 65%;
+    --accent-foreground: 45 25% 8%;
+    --accent-light: 45 40% 20%;
+
+    --success: 142 76% 46%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 57%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 245 15% 18%;
+    --input: 245 15% 15%;
+    --ring: 245 70% 65%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(245, 70%, 65%), hsl(260, 60%, 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(245, 15%, 15%), hsl(245, 12%, 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(45, 85%, 65%), hsl(35, 80%, 60%));
+    
+    --gradient-focus: linear-gradient(135deg, hsl(245, 20%, 12%), hsl(245, 15%, 15%));
+    --gradient-break: linear-gradient(135deg, hsl(45, 20%, 12%), hsl(50, 15%, 15%));
+
+    --shadow-card: 0 4px 20px -2px hsl(0, 0%, 0%, 0.3);
+    --shadow-focus: 0 8px 30px -4px hsl(245, 70%, 65%, 0.2);
+    --shadow-accent: 0 4px 20px -2px hsl(45, 85%, 65%, 0.15);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom utilities for StudySync */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

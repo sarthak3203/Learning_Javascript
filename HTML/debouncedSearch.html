@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debounced Input Search</title>
+</head>
+<body>
+  <h2>Search User</h2>
+  <input type="text" id="searchInput" placeholder="Type a name..." />
+
+  <script>
+    // 🧠 Debounce function: delays execution of 'fn' until after 'delay' ms of no new input
+    const debounce = (fn, delay) => {
+      let id; // timer ID storage
+
+      return (...args) => {
+        if (id) clearTimeout(id); // cancel previous timer
+        id = setTimeout(() => {
+          fn(...args); // run the actual function after delay
+        }, delay);
+      };
+    };
+
+    // 🔍 Simulated API call
+    const fetchUser = (query) => {
+      console.log(`API Call for: "${query}"`);
+    };
+
+    // Get the input element
+    const input = document.getElementById('searchInput');
+
+    // Wrap the fetchUser call in debounce (wait 500ms after last keystroke)
+    const debouncedSearch = debounce((e) => {
+      fetchUser(e.target.value);
+    }, 500);
+
+    // Add event listener to input box
+    input.addEventListener('input', debouncedSearch);
+  </script>
+</body>
+</html>

@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage</title>
 </head>
 <body>
   
 
+
+
+
   <script>
 
-  localStorage.setItem('Name', 'Sarthak');
-  localStorage.setItem('class', '16th');
-
-  console.log(localStorage.getItem('Name'));
-
-  let product= {
-    name: 'shirt',
-    price: 900,
-    size: 'm',
+    let obj1={
+      name:"Sarthak",
+      age:"22",
+      reviews:{
+        ratings:500,
+        stars:5,
+      },
+      add:"panipat"
     }
 
-    localStorage.setItem('product', JSON.stringify(product));
+    localStorage.clear();
 
-    let product2= JSON.parse(localStorage.getItem('product'));
-    console.log(product2);
 
-    //localStorage.removeItem('class');
-   // localStorage.clear();
+    localStorage.setItem("hello","world");
+
+    localStorage.setItem("userData",JSON.stringify(obj1));
+
+    console.log(localStorage.getItem("hello"));
+    console.log(JSON.parse(localStorage.getItem("userData")));
+
 
 
   </script>

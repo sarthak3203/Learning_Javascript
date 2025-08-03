@@ -1,87 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Document</title>
+  <title>Cricket Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    #result,
+    #scoreboard {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
 </head>
-<style>
-  body{
-    text-align: center;
-  }
-</style>
+
 <body>
+
   <h1>Bat Ball Stump Game</h1>
-  <button onclick="
-  let computerChoice= generateCompChoice();
 
+  <button onclick="playGame('Bat')">Bat</button>
+  <button onclick="playGame('Ball')">Ball</button>
+  <button onclick="playGame('Stump')">Stump</button>
+  <br><br>
+  <button onclick="resetScore()">Reset Score</button>
 
-   let result;
-   if(computerChoice === 'Ball'){
-    result = 'User has won';
-   } else if(computerChoice === 'Bat'){
-    result = 'Its a tie';
-   } else {
-    result = 'Computer Won';
-   }
-   alert(`Your choice is bat. Computer choice is ${computerChoice} and ${result}`);
-  
-  
-  
-  ">BAT</button>
-  <button onclick="
-
-   computerChoice= generateCompChoice();
-
-   if(computerChoice === 'Ball'){
-    result = 'Its a tie';
-   } else if(computerChoice === 'Bat'){
-    result = 'Computer has won';
-   } else {
-    result = 'User has won';
-   }
-   alert(`Your choice is ball.
-   Computer choice is ${computerChoice} .
-    ${result}`);
-  
-  
-  
-  ">BALL</button>
-  <button onclick="
-
-    computerChoice= generateCompChoice();
-
-   if(computerChoice === 'Ball'){
-    result = 'Computer has won';
-   } else if(computerChoice === 'Bat'){
-    result = 'User has won';
-   } else {
-    result = 'Its a tie';
-   }
-   alert(`Your choice is stump.
-   Computer choice is ${computerChoice} .
-    ${result}`);
-  
-  
-  
-  ">
-    STUMP
-  </button>
+  <div id="result"></div> <!--for displaying the result using js-->
+  <div id="scoreboard"></div> <!--for displaying the scoreboard using js-->
 
   <script>
+    // Load score from localStorage or set to 0
+    let score = JSON.parse(localStorage.getItem("score")) || {
+      user: 0,
+      computer: 0,
+      tied: 0,
+    };
 
-    
-    function generateCompChoice(){
-      let randomnum = Math.random() * 3;
-  
-   if (randomnum>0 && randomnum<1){
-    return 'Bat';
-   } else if(randomnum>1 && randomnum<2){
-    return 'Ball';
-   } else{
-    return 'Stump';
-   }
-
+    function generateCompChoice() {
+      const choices = ["Bat", "Ball", "Stump"];
+      const randomIndex = Math.floor(Math.random() * choices.length);
+      return choices[randomIndex];  //randomIndex will be 0 or 1 or 2, which will return any one element from the array randomly
     }
+
+    function playGame(userChoice) {   // this function returns the result taking user choice, this function is used in the buttons
+      const compChoice = generateCompChoice();
+      let result = "";
+
+      if (userChoice === compChoice) {
+        result = "It's a tie!";
+        score.tied++;
+      } else if (
+        (userChoice === "Bat" && compChoice === "Ball") ||
+        (userChoice === "Ball" && compChoice === "Stump") ||
+        (userChoice === "Stump" && compChoice === "Bat")
+      ) {
+        result = "You won!";
+        score.user++;
+      } else {
+        result = "Computer won!";
+        score.computer++;
+      }
+
+      // Save score to localStorage
+      localStorage.setItem("score", JSON.stringify(score));
+
+      // Display result and updated score
+      document.getElementById("result").innerText =
+        `You chose ${userChoice}, Computer chose ${compChoice}. ${result}`;
+
+      document.getElementById("scoreboard").innerText =
+        `Your Score: ${score.user} | Computer Score: ${score.computer} | Tied: ${score.tied}`;
+    }
+
+    function resetScore() {
+      score = { user: 0, computer: 0, tied: 0 };
+      localStorage.setItem("score", JSON.stringify(score));
+      document.getElementById("scoreboard").innerText =
+        `Your Score: ${score.user} | Computer Score: ${score.computer} | Tied: ${score.tied}`;
+      document.getElementById("result").innerText = "Scoreboard reset!";
+    }
+
+    // Show only score on page load
+    document.getElementById("scoreboard").innerText =
+      `Your Score: ${score.user} | Computer Score: ${score.computer} | Tied: ${score.tied}`;
   </script>
-  
 </body>
+
 </html>

@@ -1,91 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Document</title>
+  <title>Calculator</title>
   <link rel="stylesheet" href="calculator.css">
 </head>
+
 <body>
   <div id="calculator">
     <input type="text" id="display" readonly>
     <div id="button_container">
 
-    <button class="button" onclick="current_display='';
-    document.querySelector('#display').value=current_display;
-    ">C</button>
+      <button class="button" onclick="current_display='';
+      document.querySelector('#display').value=current_display">C</button>
 
-    <button class="button" onclick="current_display=current_display+'1';
-    document.querySelector('#display').value=current_display;
-    ">1</button>
+      <button class="button" onclick="press('1')">1</button>
 
-    <button class="button" onclick="current_display=current_display+'2';
-    document.querySelector('#display').value=current_display;
-    ">2</button>
+      <button class="button" onclick="press('2')">2</button>
 
-    <button class="button" onclick="current_display=current_display+'+';
-    document.querySelector('#display').value=current_display;
-    ">+</button>
+      <button class="button" onclick="press('+')">+</button>
 
-    <button class="button" onclick="current_display=current_display+'3';
-    document.querySelector('#display').value=current_display;
-    ">3</button>
+      <button class="button" onclick="press('3')">3</button>
 
-    <button class="button" onclick="current_display=current_display+'4';
+      <!--ABOVE is the updated version of the code written with the help of press function, above code is neat and clean and small also-->
+
+
+
+
+      <!--BELOW is the old version of the code where no function is used and we have to write the same piece of code again and again for evry button-->
+
+
+      <button class="button" onclick="current_display=current_display+'4';
     document.querySelector('#display').value=current_display;
     ">4</button>
 
-    <button class="button" onclick="current_display=current_display+'-';
+      <button class="button" onclick="current_display=current_display+'-';
     document.querySelector('#display').value=current_display;
     ">-</button>
 
-    <button class="button" onclick="current_display=current_display+'5';
+      <button class="button" onclick="current_display=current_display+'5';
     document.querySelector('#display').value=current_display;
     ">5</button>
 
-    <button class="button" onclick="current_display=current_display+'6';
+      <button class="button" onclick="current_display=current_display+'6';
     document.querySelector('#display').value=current_display;
     ">6</button>
 
-    <button class="button" onclick="current_display=current_display+'*';
+      <button class="button" onclick="current_display=current_display+'*';
     document.querySelector('#display').value=current_display;
     ">*</button>
 
-    <button class="button" onclick="current_display=current_display+'7';
+      <button class="button" onclick="current_display=current_display+'7';
     document.querySelector('#display').value=current_display;
     ">7</button>
 
-    <button class="button" onclick="current_display=current_display+'8';
+      <button class="button" onclick="current_display=current_display+'8';
     document.querySelector('#display').value=current_display;
     ">8</button>
 
-    <button class="button" onclick="current_display=current_display+'/';
+      <button class="button" onclick="current_display=current_display+'/';
     document.querySelector('#display').value=current_display;
     ">/</button>
 
-    <button class="button" onclick="
+      <button class="button" onclick="
     let result = eval(current_display);
     current_display= result;
     document.querySelector('#display').value=current_display;
     ">=</button>
 
-    <button class="button" onclick="current_display=current_display+'9';
+      <button class="button" onclick="current_display=current_display+'9';
     document.querySelector('#display').value=current_display;
     ">9</button>
 
-    <button class="button" onclick="current_display=current_display+'0';
+      <button class="button" onclick="current_display=current_display+'0';
     document.querySelector('#display').value=current_display;
     ">0</button>
 
-    <button class="button" onclick="current_display=current_display+'.';
+      <button class="button" onclick="current_display=current_display+'.';
     document.querySelector('#display').value=current_display;
     ">.</button>
+
+
+      <button class="button" onclick="backspace()">←</button>
+
 
     </div>
 
   </div>
-  
+
   <script>
-  let current_display='';
-  document.querySelector('#display').value=current_display;
-</script>
+    function backspace() {
+      current_display = current_display.slice(0, -1);
+      document.querySelector('#display').value = current_display;
+    }
+    /*The slice(0, -1) method removes the last character from the current_display by returning new string starting from index 0 and stopping one character before the end (because -1 means "last character"). This is used to simulate the backspace functionality, and the updated string is then shown on the calculator display using querySelector.*/
+
+
+
+    let current_display = '';
+    document.querySelector('#display').value = current_display;
+
+    function press(num) {
+      current_display = current_display + num;
+      document.querySelector('#display').value = current_display;
+    }
+
+
+
+  </script>
 </body>
+
 </html>

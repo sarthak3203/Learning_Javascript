@@ -6,18 +6,42 @@
 }
 
 body {
-  background-color: #2b1d0f;
+  background-color: #2C2C2C;
   color: #fff;
-
 
 }
 
+header {
+  height: 100px;
+}
+
+.image-container{
+  margin-left: 15px;
+  height: 93%;
+  width: 9%;
+  text-align: left;
+}
+
+.image{
+  height: 100%;
+  width: 100%;
+}
+
+.chefmate-text {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: larger;
+  margin-left: auto;
+  padding-right: 15px;
+  text-align: right;
+}
+
+
 header nav {
-  background-color: #212121;
-  padding: 20px;
+  background-color: #c9400e;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  height: 100%;
 
 }
 
@@ -25,10 +49,11 @@ header nav h1 {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
 }
 
-header nav form {
+main div form {
   display: flex;
   justify-content: center;
 
@@ -209,14 +234,111 @@ body::-webkit-scrollbar-track {
 
 
 
-/*Responsive code*/
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
+  /* Fix navbar layout */
   header nav {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  header nav form {
-    width: 80%;
-    margin-top: 10px;
+  .image-container {
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
   }
+
+  .chefmate-text {
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Fix search form layout and spacing */
+  .form {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    gap: 10px;
+  }
+
+  .searchBox,
+  .searchBtn {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* Center recipe cards */
+  .recipe-container {
+    justify-content: center;
+  }
+
+  .recipe-details {
+    width: 90%;
+    height: 75%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  form input[type="text"] {
+    width: 80%;
+    margin: 0 auto 10px auto;
+  }
+  
+  form button[type="submit"] {
+    width: 40%;
+    margin: 0 auto;
+  }
+  
+  
+}
+
+
+/* Search section */
+.search-section {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.search-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Center the form under heading */
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchBox {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.searchBtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
